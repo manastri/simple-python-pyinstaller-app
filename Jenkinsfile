@@ -33,14 +33,14 @@ pipeline {
         stage('Deliver') { 
             agent any
             environment { 
-                VOLUME = "/var/jenkins_home/jobs/simple-python-pyinstaller-app/branches/master/workspace/${env.BUILD_ID}/sources"
+     //           VOLUME = "/var/jenkins_home/jobs/simple-python-pyinstaller-app/branches/master/workspace/${env.BUILD_ID}/sources"
                 IMAGE = 'cdrx/pyinstaller-linux:python2'
             }
             steps {
                 dir(path: env.BUILD_ID) { 
                     unstash(name: 'compiled-results') 
                     echo "Volume is ${VOLUME}"
-                    sh "docker run --rm  ${IMAGE} 'pyinstaller -F ${VOLUME}/add2vals.py'" 
+                    sh "docker run --rm  ${IMAGE} 'pyinstaller -F add2vals.py'" 
                 }
             }
             post {
