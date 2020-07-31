@@ -30,7 +30,7 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') { 
+  /*      stage('Deliver') { 
             agent any
             environment { 
                 VOLUME = '/var/jenkins_home/jobs/simple-python-pyinstaller-app/branches/master/workspace/${env.BUILD_ID}/sources:/src'
@@ -49,6 +49,7 @@ pipeline {
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                 }
             }
-        }
+        } */
+        
     }
 }
